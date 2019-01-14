@@ -82,6 +82,26 @@
         self.present(resultView,animated: true)
     }
 ```
+1_5. segue 로 화면 전환할때
+```swift
+    //manual segue
+    @IBAction func onPerformSegue(_ sender: Any) {
+        self.performSegue(withIdentifier: "ManualSubmit", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationview = segue.destination
+        
+        guard let resultViewController = destinationview as? NaviResultViewController else{
+            return
+        }
+        
+        resultViewController.paramEmail = self.emailText.text!
+        resultViewController.paramUpdate = self.switchbtn.isOn
+        resultViewController.paramInterval = self.interval.value
+    }
+  ```
+
 2_1. 전달받는 viewcontroller의 인스턴스를 생성하는 것이 아니라 현재 존재하는 viewcontroller의 인스턴스의 참조값을 얻어온다.
  ```swift
      @IBAction func secondSubmitBtn(_ sender: Any) {
