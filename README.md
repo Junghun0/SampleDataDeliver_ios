@@ -2,19 +2,19 @@
 ---
 1. 뷰 컨트롤러에 직접값을 전달하기
 
-   1_1 전달할 값을 준비
+   1_1. 전달할 값을 준비
   
-   1_2 값을 전달받을 프로퍼티 정의
+   1_2. 값을 전달받을 프로퍼티 정의
   
-   1_3 값을 전달받을 viewcontroller의 인스턴스를 직접 생성하거나, 이미 생성되어 있는 인스턴스의 참조를 읽어옴. 
+   1_3. 값을 전달받을 viewcontroller의 인스턴스를 직접 생성하거나, 이미 생성되어 있는 인스턴스의 참조를 읽어옴. 
   
-   1_4 정의한 프로퍼티에 값을 대입 후 화면 전환. 
+   1_4. 정의한 프로퍼티에 값을 대입 후 화면 전환. 
 
 2. 이전 화면으로 값을 전달하기
 
-    2_1 전달받는 viewcontroller의 인스턴스를 생성하는 것이 아니라 현재 존재하는 viewcontroller의 인스턴스의 참조값을 얻어온다.
+    2_1. 전달받는 viewcontroller의 인스턴스를 생성하는 것이 아니라 현재 존재하는 viewcontroller의 인스턴스의 참조값을 얻어온다.
   
-    2_2 인스턴스가 초기화 될때 마다 호출되는 viewDidLoad() 메소드를 사용하지않고, 화면이 새롭게 그려질 때마다 호출되는 viewWillAppear() 메소드사용
+    2_2. 인스턴스가 초기화 될때 마다 호출되는 viewDidLoad() 메소드를 사용하지않고, 화면이 새롭게 그려질 때마다 호출되는 viewWillAppear() 메소드사용
 ---
 #### 소스코드
 
@@ -82,7 +82,7 @@
         self.present(resultView,animated: true)
     }
 ```
-2_1 전달받는 viewcontroller의 인스턴스를 생성하는 것이 아니라 현재 존재하는 viewcontroller의 인스턴스의 참조값을 얻어온다.
+2_1. 전달받는 viewcontroller의 인스턴스를 생성하는 것이 아니라 현재 존재하는 viewcontroller의 인스턴스의 참조값을 얻어온다.
  ```swift
      @IBAction func secondSubmitBtn(_ sender: Any) {
         let valuebackfirst = self.presentingViewController
@@ -98,7 +98,7 @@
     }
  ```
 
-2_2 인스턴스가 초기화 될때 마다 호출되는 viewDidLoad() 메소드를 사용하지않고, 화면이 새롭게 그려질 때마다 호출되는 viewWillAppear() 메소드사용
+2_2. 인스턴스가 초기화 될때 마다 호출되는 viewDidLoad() 메소드를 사용하지않고, 화면이 새롭게 그려질 때마다 호출되는 viewWillAppear() 메소드사용
 ```swift
     override func viewWillAppear(_ animated: Bool) {
         if let email = paramEmail{
